@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduardo Ferrari</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+      color: #f8fafc;
+      overflow: hidden;
+    }
+
+    .background-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(59, 130, 246, 0.2);
+      filter: blur(90px);
+      border-radius: 50%;
+      top: 10%;
+      left: 10%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .background-glow.two {
+      top: auto;
+      left: auto;
+      right: 10%;
+      bottom: 10%;
+      background: rgba(168, 85, 247, 0.2);
+      animation-delay: 2s;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      width: min(90%, 700px);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 48px 36px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.18);
+      color: #bfdbfe;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin-bottom: 16px;
+    }
+
+    .bio {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .skill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.95rem;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    button {
+      border: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: #3b82f6;
+      color: white;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #2563eb;
+    }
+
+    #message {
+      margin-top: 18px;
+      color: #bfdbfe;
+      font-size: 1rem;
+      min-height: 24px;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 36px 24px;
+      }
+
+      .bio {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-glow"></div>
+  <div class="background-glow two"></div>
+
+  <main class="card">
+    <span class="tag">Portfólio Pessoal</span>
+    <h1>Eduardo Ferrari</h1>
+    <p class="bio">
+      Sou Engenheiro de Software, desenvolvedor iOS e Java Spring Boot, com foco na criação de soluções modernas, bem estruturadas e voltadas para uma ótima experiência do usuário.
+    </p>
+
+    <div class="skills">
+      <span class="skill">iOS Development</span>
+      <span class="skill">Swift</span>
+      <span class="skill">Java</span>
+      <span class="skill">Spring Boot</span>
+      <span class="skill">Software Engineering</span>
+    </div>
+
+    <button id="actionButton">Clique aqui</button>
+    <p id="message"></p>
+  </main>
+
+  <script>
+    const button = document.getElementById('actionButton');
+    const message = document.getElementById('message');
+
+    const texts = [
+      'Bem-vindo ao meu GitHub Pages.',
+      'Aqui você pode conhecer mais sobre meu trabalho.',
+      'Desenvolvimento com foco em qualidade, arquitetura e experiência.'
+    ];
+
+    let index = 0;
+
+    button.addEventListener('click', () => {
+      message.textContent = texts[index];
+      index = (index + 1) % texts.length;
+    });
+  </script>
+</body>
+</html>
