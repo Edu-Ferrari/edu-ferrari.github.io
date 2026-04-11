@@ -1,8 +1,0 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   index.css
-   Import order matters: variables first, then globals.
-   Component styles are imported inside each component file.
-───────────────────────────────────────────────────────────────────────────── */
-
-@import './styles/variables.css';
-@import './styles/global.css';
