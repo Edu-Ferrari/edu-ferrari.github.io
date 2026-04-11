@@ -1,0 +1,82 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Projects.css
+───────────────────────────────────────────────────────────────────────────── */
+
+.projects-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Header row ───────────────────────────────────────────────────────────── */
+.projects-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ── Tab switcher ─────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+  padding: 4px;
+  background: var(--surface);
+}
+
+.tab-btn {
+  padding: 10px 24px;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: background 0.25s, color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.tab-btn.active-swift {
+  background: rgba(0, 212, 255, 0.12);
+  color: var(--swift);
+}
+
+.tab-btn.active-java {
+  background: rgba(255, 45, 120, 0.12);
+  color: var(--java);
+}
+
+.tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-swift { background: var(--swift); }
+.dot-java  { background: var(--java); }
+
+/* ── Cards grid ───────────────────────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
