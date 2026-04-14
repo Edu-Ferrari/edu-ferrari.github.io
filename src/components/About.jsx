@@ -7,11 +7,9 @@
 import { forwardRef } from "react";
 import FadeIn from "./FadeIn";
 import "../styles/About.css";
-
-// ── Uncomment & update these imports once you add your photos ────────────────
-// import photo1 from "../assets/photo1.jpg";
-// import photo2 from "../assets/photo2.jpg";
-// import photo3 from "../assets/photo3.jpg";
+import photo1 from "../assets/photo1.JPG";
+import photo2 from "../assets/photo2.JPG";
+import photo3 from "../assets/photo3.JPG";
 
 const About = forwardRef(function About({ t }, ref) {
   return (
@@ -22,17 +20,17 @@ const About = forwardRef(function About({ t }, ref) {
         <FadeIn delay={0.1}>
           <div className="about-photos">
             <div className="photo-slot photo-slot--wide">
-              {/* Replace the div below with:
+              { 
                   <img src={photo1} alt="Eduardo Ferrari" />
-              */}
+              }
               <div className="photo-placeholder">Photo 1</div>
             </div>
             <div className="photo-slot">
-              {/* <img src={photo2} alt="Eduardo Ferrari" /> */}
+              { <img src={photo2} alt="Eduardo Ferrari" /> }
               <div className="photo-placeholder">Photo 2</div>
             </div>
             <div className="photo-slot">
-              {/* <img src={photo3} alt="Eduardo Ferrari" /> */}
+              { <img src={photo3} alt="Eduardo Ferrari" /> }
               <div className="photo-placeholder">Photo 3</div>
             </div>
           </div>
