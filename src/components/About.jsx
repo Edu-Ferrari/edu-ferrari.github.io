@@ -8,7 +8,7 @@ import { forwardRef } from "react";
 import FadeIn from "./FadeIn";
 import "../styles/About.css";
 import photo1 from "../assets/photo1.JPG";
-import photo2 from "../assets/photo2.JPG";
+import photo2 from "../assets/photo2.PNG";
 import photo3 from "../assets/photo3.JPG";
 
 const About = forwardRef(function About({ t }, ref) {
