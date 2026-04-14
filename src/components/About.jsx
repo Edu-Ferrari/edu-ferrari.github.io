@@ -4,35 +4,62 @@
 // Photos: place your images in src/assets/ and import them below.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import FadeIn from "./FadeIn";
 import "../styles/About.css";
 import photo1 from "../assets/photo1.JPG";
 import photo2 from "../assets/photo2.PNG";
 import photo3 from "../assets/photo3.JPG";
 
+const photos = [photo1, photo2, photo3];
+
 const About = forwardRef(function About({ t }, ref) {
+  const [current, setCurrent] = useState(0);
+
+  const prev = () => setCurrent((c) => (c - 1 + photos.length) % photos.length);
+  const next = () => setCurrent((c) => (c + 1) % photos.length);
+
   return (
     <section className="about-section" ref={ref}>
       <div className="about-inner">
 
-        {/* Photo grid */}
+        {/* Photo carousel */}
         <FadeIn delay={0.1}>
-          <div className="about-photos">
-            <div className="photo-slot photo-slot--wide">
-              { 
-                  <img src={photo1} alt="Eduardo Ferrari" />
-              }
-              <div className="photo-placeholder">Photo 1</div>
+          <div className="photo-carousel">
+
+            {/* Botão esquerdo */}
+            <button className="carousel-arrow carousel-arrow--left" onClick={prev}>
+              &#8249;
+            </button>
+
+            {/* Imagem atual */}
+            <div className="carousel-img-wrapper">
+              {photos.map((photo, i) => (
+                <img
+                  key={i}
+                  src={photo}
+                  alt={`Eduardo Ferrari ${i + 1}`}
+                  className={`carousel-img${i === current ? " carousel-img--active" : ""}`}
+                />
+              ))}
             </div>
-            <div className="photo-slot">
-              { <img src={photo2} alt="Eduardo Ferrari" /> }
-              <div className="photo-placeholder">Photo 2</div>
+
+            {/* Botão direito */}
+            <button className="carousel-arrow carousel-arrow--right" onClick={next}>
+              &#8250;
+            </button>
+
+            {/* Dots */}
+            <div className="carousel-dots">
+              {photos.map((_, i) => (
+                <button
+                  key={i}
+                  className={`carousel-dot${i === current ? " carousel-dot--active" : ""}`}
+                  onClick={() => setCurrent(i)}
+                />
+              ))}
             </div>
-            <div className="photo-slot">
-              { <img src={photo3} alt="Eduardo Ferrari" /> }
-              <div className="photo-placeholder">Photo 3</div>
-            </div>
+
           </div>
         </FadeIn>
 
