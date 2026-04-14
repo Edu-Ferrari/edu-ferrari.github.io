@@ -19,30 +19,36 @@
 .about-photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 14px;
 }
 
-.photo-slot {
-  border-radius: 16px;
-  overflow: hidden;
-  height: 200px;
-  background: #0f0f18;
-}
-
+/* Foto grande — ocupa as duas colunas */
 .photo-slot--wide {
   grid-column: 1 / 3;
   border-radius: 20px;
-  height: 260px;
+  overflow: hidden;
+  height: 340px;
   background: #0f0f18;
 }
 
-/* Imagens dentro dos slots */
+/* Fotos menores */
+.photo-slot {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 220px;
+  background: #0f0f18;
+}
+
+/* Todas as imagens preenchem o slot sem distorcer
+   object-position: top centraliza no topo (rosto) */
 .photo-slot img,
 .photo-slot--wide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center top;
   display: block;
+  border-radius: inherit;
 }
 
 /* ── Text block ───────────────────────────────────────────────────────────── */
@@ -60,10 +66,11 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  .photo-slot--wide { height: 280px; }
+  .photo-slot       { height: 180px; }
 }
 
 @media (max-width: 600px) {
-  .about-photos {
-    grid-template-rows: auto;
-  }
+  .photo-slot--wide { height: 220px; }
+  .photo-slot       { height: 150px; }
 }
