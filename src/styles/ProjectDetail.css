@@ -2,12 +2,14 @@
    ProjectDetail.css
 ───────────────────────────────────────────────────────────────────────────── */
 
+/* Page — scroll vertical livre */
 .pd-page {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
   padding: calc(var(--nav-h) + 32px) 8% 100px;
   position: relative;
+  overflow-y: auto;
 }
 
 /* ── Back button ──────────────────────────────────────────────────────────── */
@@ -85,24 +87,22 @@
   overflow: hidden;
 }
 
-/* Ambient glow background */
 .pd-hero-glow {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(0, 212, 255, 0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(255, 45, 120, 0.06) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(0,212,255,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(255,45,120,0.06) 0%, transparent 60%);
   pointer-events: none;
 }
 
-/* Small hero image */
 .pd-hero-img {
   width: 120px;
   height: 120px;
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid var(--border);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
   position: relative;
   z-index: 1;
 }
@@ -152,7 +152,6 @@
   z-index: 1;
 }
 
-/* Tech pills in hero */
 .pd-tech-pills {
   display: flex;
   flex-wrap: wrap;
@@ -167,13 +166,12 @@
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 500;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(0,212,255,0.3);
   color: var(--accent);
-  background: rgba(0, 212, 255, 0.07);
+  background: rgba(0,212,255,0.07);
   letter-spacing: 0.04em;
 }
 
-/* CTA */
 .pd-cta {
   display: inline-flex;
   align-items: center;
@@ -191,10 +189,7 @@
   position: relative;
   z-index: 1;
 }
-.pd-cta:hover {
-  opacity: 0.88;
-  transform: translateY(-2px);
-}
+.pd-cta:hover { opacity: 0.88; transform: translateY(-2px); }
 
 /* ── Sections ─────────────────────────────────────────────────────────────── */
 .pd-section {
@@ -236,7 +231,7 @@
   transition: border-color 0.2s, color 0.2s;
 }
 .pd-tech-item:hover {
-  border-color: rgba(0, 212, 255, 0.4);
+  border-color: rgba(0,212,255,0.4);
   color: var(--accent);
 }
 
@@ -262,7 +257,7 @@
   gap: 6px;
 }
 .pd-team-card:hover {
-  border-color: rgba(0, 212, 255, 0.35);
+  border-color: rgba(0,212,255,0.35);
   transform: translateY(-3px);
 }
 
@@ -272,12 +267,7 @@
   align-items: flex-start;
 }
 
-.pd-member-name {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
+.pd-member-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
 .pd-member-arrow {
   font-size: 0.8rem;
   color: var(--muted);
@@ -298,19 +288,10 @@
   display: inline-block;
 }
 .pd-member-role--developer,
-.pd-member-role--dev {
-  background: rgba(0, 212, 255, 0.12);
-  color: var(--accent);
-}
-.pd-member-role--designer {
-  background: rgba(255, 45, 120, 0.12);
-  color: var(--accent2);
-}
+.pd-member-role--dev { background: rgba(0,212,255,0.12); color: var(--accent); }
+.pd-member-role--designer { background: rgba(255,45,120,0.12); color: var(--accent2); }
 .pd-member-role--pm,
-.pd-member-role--product {
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--muted);
-}
+.pd-member-role--product { background: rgba(255,255,255,0.07); color: var(--muted); }
 
 /* ── Screenshot carousel ──────────────────────────────────────────────────── */
 .pd-carousel {
@@ -323,11 +304,7 @@
   aspect-ratio: 16/9;
 }
 
-.pd-carousel-track {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+.pd-carousel-track { width: 100%; height: 100%; position: relative; }
 
 .pd-carousel-slide {
   position: absolute;
@@ -336,10 +313,8 @@
   transition: opacity 0.5s ease;
 }
 .pd-carousel-slide.active { opacity: 1; }
-
 .pd-carousel-slide img {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   display: block;
 }
@@ -349,24 +324,21 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 38px;
-  height: 38px;
+  width: 38px; height: 38px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(6, 6, 8, 0.6);
+  background: rgba(6,6,8,0.6);
   backdrop-filter: blur(8px);
   color: #fff;
   font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.25s, background 0.25s;
 }
 .pd-carousel:hover .pd-carousel-arrow { opacity: 1; }
 .pd-carousel-arrow:hover {
-  background: rgba(0, 212, 255, 0.2);
+  background: rgba(0,212,255,0.2);
   border-color: var(--accent);
 }
 .pd-carousel-arrow--left  { left: 12px; }
@@ -374,40 +346,32 @@
 
 .pd-carousel-dots {
   position: absolute;
-  bottom: 14px;
-  left: 50%;
+  bottom: 14px; left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 10;
+  display: flex; gap: 6px; z-index: 10;
 }
 
 .pd-carousel-dot {
-  width: 7px;
-  height: 7px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   border: none;
   background: rgba(255,255,255,0.3);
   cursor: pointer;
   padding: 0;
-  transition: background 0.25s, transform 0.25s, width 0.25s;
+  transition: background 0.25s, width 0.25s;
 }
 .pd-carousel-dot.active {
   background: var(--accent);
   width: 18px;
   border-radius: 999px;
-  transform: none;
 }
 
 /* ── Not found ────────────────────────────────────────────────────────────── */
 .pd-not-found {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  color: var(--muted);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 20px; color: var(--muted);
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
@@ -415,7 +379,6 @@
   .pd-side-arrow { display: none; }
   .pd-page { padding: calc(var(--nav-h) + 24px) 6% 80px; }
 }
-
 @media (max-width: 600px) {
   .pd-hero { padding: 32px 16px; }
   .pd-hero-img { width: 90px; height: 90px; }

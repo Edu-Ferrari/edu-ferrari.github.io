@@ -1,23 +1,14 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Contact.jsx
-// Contact section: social links on the left, message form on the right.
-// ─────────────────────────────────────────────────────────────────────────────
-
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import FadeIn from "./FadeIn";
 import ContactForm from "./ContactForm";
-import CVModal from "./CVModal";
 import { GitHubIcon } from "./Icons";
 import "../styles/Contact.css";
 
-const Contact = forwardRef(function Contact({ t, tCv }, ref) {
-  const [cvOpen, setCvOpen] = useState(false);
-
+const Contact = forwardRef(function Contact({ t }, ref) {
   return (
     <section className="contact-section" ref={ref}>
       <div className="contact-inner">
 
-        {/* Left column — social links */}
         <FadeIn delay={0.1}>
           <div className="contact-left">
             <p className="section-label">Get in Touch</p>
@@ -26,7 +17,6 @@ const Contact = forwardRef(function Contact({ t, tCv }, ref) {
 
             <div className="contact-links">
 
-              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/edurferrari/"
                 target="_blank"
@@ -40,7 +30,6 @@ const Contact = forwardRef(function Contact({ t, tCv }, ref) {
                 </span>
               </a>
 
-              {/* GitHub */}
               <a
                 href="https://github.com/Edu-Ferrari"
                 target="_blank"
@@ -56,16 +45,6 @@ const Contact = forwardRef(function Contact({ t, tCv }, ref) {
                 </span>
               </a>
 
-              {/* CV */}
-              <button className="contact-link" onClick={() => setCvOpen(true)}>
-                <span className="contact-link-icon link-cv">📄</span>
-                <span className="contact-link-label">
-                  <div>{t.viewCV}</div>
-                  <div className="contact-link-url">Resume / Currículo</div>
-                </span>
-              </button>
-
-              {/* Email */}
               <a href="mailto:eduferrari.du@gmail.com" className="contact-link">
                 <span className="contact-link-icon link-em">@</span>
                 <span className="contact-link-label">
@@ -78,7 +57,6 @@ const Contact = forwardRef(function Contact({ t, tCv }, ref) {
           </div>
         </FadeIn>
 
-        {/* Right column — contact form */}
         <FadeIn delay={0.3}>
           <div>
             <h3 className="form-title">{t.formTitle}</h3>
@@ -87,8 +65,6 @@ const Contact = forwardRef(function Contact({ t, tCv }, ref) {
         </FadeIn>
 
       </div>
-
-      {cvOpen && <CVModal t={tCv} onClose={() => setCvOpen(false)} />}
     </section>
   );
 });

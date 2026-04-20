@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import translations  from "./data/translations";
 import Navbar        from "./components/Navbar";
@@ -9,9 +9,9 @@ import Projects      from "./components/Projects";
 import Contact       from "./components/Contact";
 import ProjectDetail from "./components/ProjectDetail";
 
-// ── Portfolio (single page) ───────────────────────────────────────────────
 function Portfolio({ lang, setLang }) {
   const [navScrolled, setNavScrolled] = useState(false);
+  const location = useLocation();
 
   const homeRef     = useRef(null);
   const aboutRef    = useRef(null);
@@ -27,6 +27,15 @@ function Portfolio({ lang, setLang }) {
     container.addEventListener("scroll", onScroll);
     return () => container.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Scroll to projects when navigating back from ProjectDetail
+  useEffect(() => {
+    if (location.state?.scrollToProjects) {
+      setTimeout(() => {
+        projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.state]);
 
   return (
     <>
@@ -51,7 +60,6 @@ function Portfolio({ lang, setLang }) {
   );
 }
 
-// ── Root ──────────────────────────────────────────────────────────────────
 export default function App() {
   const [lang, setLang] = useState("en");
 

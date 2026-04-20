@@ -1,9 +1,3 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// ProjectDetail.jsx
-// Página de detalhe de cada projeto — inspirada na referência fornecida.
-// Acesso via /project/:id
-// ─────────────────────────────────────────────────────────────────────────────
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { swiftProjects, javaProjects } from "../data/projects";
@@ -11,7 +5,6 @@ import "../styles/ProjectDetail.css";
 
 const allProjects = [...swiftProjects, ...javaProjects];
 
-// ── Carousel de screenshots ───────────────────────────────────────────────────
 function ScreenshotCarousel({ images }) {
   const [current, setCurrent] = useState(0);
   if (!images || images.length === 0) return null;
@@ -23,10 +16,7 @@ function ScreenshotCarousel({ images }) {
     <div className="pd-carousel">
       <div className="pd-carousel-track">
         {images.map((img, i) => (
-          <div
-            key={i}
-            className={`pd-carousel-slide${i === current ? " active" : ""}`}
-          >
+          <div key={i} className={`pd-carousel-slide${i === current ? " active" : ""}`}>
             <img src={img} alt={`Screenshot ${i + 1}`} />
           </div>
         ))}
@@ -50,15 +40,9 @@ function ScreenshotCarousel({ images }) {
   );
 }
 
-// ── Team card ─────────────────────────────────────────────────────────────────
 function TeamCard({ member }) {
   return (
-    <a
-      href={member.linkedin || "#"}
-      target="_blank"
-      rel="noreferrer"
-      className="pd-team-card"
-    >
+    <a href={member.linkedin || "#"} target="_blank" rel="noreferrer" className="pd-team-card">
       <div className="pd-team-card-top">
         <span className="pd-member-name">{member.name}</span>
         <span className="pd-member-arrow">↗</span>
@@ -70,7 +54,6 @@ function TeamCard({ member }) {
   );
 }
 
-// ── Main component ────────────────────────────────────────────────────────────
 export default function ProjectDetail({ lang }) {
   const { id }   = useParams();
   const navigate = useNavigate();
@@ -84,14 +67,17 @@ export default function ProjectDetail({ lang }) {
   const goPrev = () => navigate(`/project/${allProjects[currentIdx - 1].id}`);
   const goNext = () => navigate(`/project/${allProjects[currentIdx + 1].id}`);
 
-  // Scroll to top when project changes
-  useEffect(() => { window.scrollTo({ top: 0 }); }, [id]);
+  // Back to portfolio scrolled to projects section
+  const goBack = () => navigate("/", { state: { scrollToProjects: true } });
+
+  // Scroll page to top when switching projects
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [id]);
 
   if (!project) {
     return (
       <div className="pd-not-found">
         <p>Project not found.</p>
-        <button onClick={() => navigate("/")}>← Go back</button>
+        <button onClick={goBack}>← Go back</button>
       </div>
     );
   }
@@ -103,52 +89,38 @@ export default function ProjectDetail({ lang }) {
   return (
     <div className="pd-page">
 
-      {/* ── Side arrows ── */}
+      {/* Side arrows */}
       {canGoPrev && (
-        <button className="pd-side-arrow pd-side-arrow--left" onClick={goPrev}>
-          &#8249;
-        </button>
+        <button className="pd-side-arrow pd-side-arrow--left" onClick={goPrev}>&#8249;</button>
       )}
       {canGoNext && (
-        <button className="pd-side-arrow pd-side-arrow--right" onClick={goNext}>
-          &#8250;
-        </button>
+        <button className="pd-side-arrow pd-side-arrow--right" onClick={goNext}>&#8250;</button>
       )}
 
-      {/* ── Back button ── */}
-      <button className="pd-back" onClick={() => navigate("/")}>
-        ← Back
-      </button>
+      {/* Back button */}
+      <button className="pd-back" onClick={goBack}>← Back</button>
 
       <div className="pd-inner">
 
-        {/* ── HERO ── */}
+        {/* HERO */}
         <div className="pd-hero">
           <div className="pd-hero-glow" />
-
-          {/* Imagem pequena do projeto */}
           <div className="pd-hero-img">
-            {project.image ? (
-              <img src={project.image} alt={title} />
-            ) : (
-              <div className="pd-hero-img-placeholder" />
-            )}
+            {project.image
+              ? <img src={project.image} alt={title} />
+              : <div className="pd-hero-img-placeholder" />
+            }
           </div>
-
           <span className="pd-tag">{project.tag}</span>
           <h1 className="pd-title">{title}</h1>
           <p className="pd-short-desc">{desc}</p>
-
-          {/* Tech pills */}
-          {project.technologies && project.technologies.length > 0 && (
+          {project.technologies?.length > 0 && (
             <div className="pd-tech-pills">
               {project.technologies.map((tech) => (
                 <span key={tech} className="pd-tech-pill">{tech}</span>
               ))}
             </div>
           )}
-
-          {/* Link button */}
           {project.link && project.link !== "#" && (
             <a href={project.link} target="_blank" rel="noreferrer" className="pd-cta">
               {project.linkLabel || "View Project →"}
@@ -156,22 +128,22 @@ export default function ProjectDetail({ lang }) {
           )}
         </div>
 
-        {/* ── ABOUT ── */}
+        {/* ABOUT */}
         <div className="pd-section">
           <span className="pd-section-label">About</span>
           <p className="pd-full-desc">{fullDesc || desc}</p>
         </div>
 
-        {/* ── SCREENSHOTS ── */}
-        {project.images && project.images.length > 0 && (
+        {/* SCREENSHOTS */}
+        {project.images?.length > 0 && (
           <div className="pd-section">
             <span className="pd-section-label">Screenshots</span>
             <ScreenshotCarousel images={project.images} />
           </div>
         )}
 
-        {/* ── TECHNOLOGIES ── */}
-        {project.technologies && project.technologies.length > 0 && (
+        {/* TECHNOLOGIES */}
+        {project.technologies?.length > 0 && (
           <div className="pd-section">
             <span className="pd-section-label">Technologies</span>
             <div className="pd-tech-grid">
@@ -182,8 +154,8 @@ export default function ProjectDetail({ lang }) {
           </div>
         )}
 
-        {/* ── TEAM ── */}
-        {project.team && project.team.length > 0 && (
+        {/* TEAM */}
+        {project.team?.length > 0 && (
           <div className="pd-section">
             <span className="pd-section-label">Team</span>
             <div className="pd-team-grid">

@@ -1,6 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────────────
    global.css
-   CSS reset, base html/body, shared section rules, scroll container.
 ───────────────────────────────────────────────────────────────────────────── */
 
 *, *::before, *::after {
@@ -9,30 +8,26 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+  /* SEM overflow:hidden — deixa a ProjectDetail rolar livremente */
 }
 
-/* ── Scroll container ─────────────────────────────────────────────────────── */
+/* Scroll container — usado APENAS no portfolio (página principal) */
 #scroll-root {
   height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
 }
-#scroll-root::-webkit-scrollbar {
-  display: none;
-}
+#scroll-root::-webkit-scrollbar { display: none; }
 
-/* ── Shared section defaults ──────────────────────────────────────────────── */
+/* Seções do portfolio */
 section {
   min-height: 100vh;
   scroll-snap-align: start;
@@ -42,7 +37,7 @@ section {
   padding: calc(var(--nav-h) + 40px) 8% 60px;
 }
 
-/* ── Shared typography helpers ────────────────────────────────────────────── */
+/* Helpers de tipografia compartilhados */
 .section-label {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
@@ -60,9 +55,6 @@ section {
   margin-bottom: 28px;
 }
 
-/* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  section {
-    padding: calc(var(--nav-h) + 24px) 6% 48px;
-  }
+  section { padding: calc(var(--nav-h) + 24px) 6% 48px; }
 }
