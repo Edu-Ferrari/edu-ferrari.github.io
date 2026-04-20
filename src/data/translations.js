@@ -13,7 +13,7 @@ const translations = {
     },
     hero: {
       name: "Eduardo Ferrari",
-      tagline: "iOS Developer & Software Engineer",
+      tagline: "Software Engineer",
       sub: "Building for the Apple ecosystem & back-end with Java",
       cta: "See My Work",
     },
@@ -34,7 +34,6 @@ const translations = {
       subtitle: "Open to opportunities, collaborations, and good conversations.",
       linkedin: "LinkedIn",
       github: "GitHub",
-      viewCV: "View CV",
       email: "Email",
       formTitle: "Send a Message",
       namePlaceholder: "Your name",

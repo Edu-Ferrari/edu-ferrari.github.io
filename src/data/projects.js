@@ -4,8 +4,9 @@
 
 import clarifyImg       from '../assets/clairfy.jpg';
 import zoomiesImg       from '../assets/zoomies.png';
-import dirtyDogsImg     from '../assets/dirtyDogs.png';
+import dirtyDogsImg     from '../assets/dirtyDogs2.png';
 import coffeeOverflowImg from '../assets/coffeeOverflow5.jpg';
+import javaImg from '../assets/javaSpring.png';
 
 export const swiftProjects = [
   {
@@ -23,11 +24,11 @@ export const swiftProjects = [
     image: clarifyImg,
     images: [],
     team: [
-      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
       { name: "Leonardo",  role: "Designer",   linkedin: "https://www.linkedin.com/in/leonardosimon/" },
       { name: "Pablo",     role: "Developer",  linkedin: "https://www.linkedin.com/in/pablogarciadev/" },
       { name: "Bernardo",  role: "Developer",  linkedin: "https://www.linkedin.com/in/bernardofens/" },
       { name: "Andrei",    role: "Developer",  linkedin: "https://www.linkedin.com/in/rechandrei/" },
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
     ],
   },
   {
@@ -45,11 +46,11 @@ export const swiftProjects = [
     image: coffeeOverflowImg,
     images: [],
     team: [
-      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
       { name: "Leonardo",  role: "Designer",   linkedin: "https://www.linkedin.com/in/leonardosimon/" },
       { name: "Guilherme", role: "Developer",  linkedin: "https://www.linkedin.com/in/guilhermeghise/" },
       { name: "Pablo",     role: "Developer",  linkedin: "https://www.linkedin.com/in/pablogarciadev/" },
       { name: "Jean",      role: "Developer",  linkedin: "https://www.linkedin.com/in/jeanpierrerodrigues" },
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
     ],
   },
   {
@@ -67,11 +68,11 @@ export const swiftProjects = [
     image: zoomiesImg,
     images: [],
     team: [
-      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
       { name: "Gabriel",   role: "Developer",  linkedin: "https://www.linkedin.com/in/gabriel-cabreira-barbosa-972ba8247/" },
       { name: "Leonel",    role: "Developer",  linkedin: "https://www.linkedin.com/in/leonelhernandezs/" },
       { name: "Guilherme", role: "Developer",  linkedin: "https://www.linkedin.com/in/guilhermeghise/" },
       { name: "Giovana",   role: "Designer",   linkedin: "https://www.linkedin.com/in/giovanahrebello/" },
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
     ],
   },
   {
@@ -102,15 +103,15 @@ export const javaProjects = [
     id: 5,
     titleEn: "E-commerce Back-end",
     titlePt: "E-commerce Back-end",
-    descEn: "Short description of the E-commerce Back-end. Replace with real content.",
-    descPt: "Descrição curta do E-commerce Back-end. Substitua pelo conteúdo real.",
-    fullDescEn: "Full description of the E-commerce Back-end. Replace with real content.",
-    fullDescPt: "Descrição completa do E-commerce Back-end. Substitua pelo conteúdo real.",
+    descEn: "Incoming project...",
+    descPt: "Projeto em andamento...",
+    fullDescEn: "Incoming project...",
+    fullDescPt: "Projeto em andamento...",
     link: "#",
     linkLabel: "View on GitHub →",
     tag: "Spring Boot",
     technologies: ["Java", "Spring Boot", "REST API", "PostgreSQL"],
-    image: null,
+    image: javaImg,
     images: [],
     team: [
       { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
@@ -120,15 +121,15 @@ export const javaProjects = [
     id: 6,
     titleEn: "Bank Back-end",
     titlePt: "Bank Back-end",
-    descEn: "Short description of the Bank Back-end. Replace with real content.",
-    descPt: "Descrição curta do Bank Back-end. Substitua pelo conteúdo real.",
-    fullDescEn: "Full description of the Bank Back-end. Replace with real content.",
-    fullDescPt: "Descrição completa do Bank Back-end. Substitua pelo conteúdo real.",
+    descEn: "Incoming project...",
+    descPt: "Projeto em andamento...",
+    fullDescEn: "Incoming project...",
+    fullDescPt: "Projeto em andamento...",
     link: "#",
     linkLabel: "View on GitHub →",
     tag: "Spring Boot",
     technologies: ["Java", "Spring Boot", "JPA", "MySQL"],
-    image: null,
+    image: javaImg,
     images: [],
     team: [
       { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
