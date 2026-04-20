@@ -1,75 +1,124 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // projects.js
-// Add your real project data here.
-// Images: place files in src/assets/ and import them at the top.
+// Campos disponíveis:
+//   technologies  → array de strings ex: ["SwiftUI", "HealthKit"]
+//   team          → array de { name, role, linkedin }
+//   images        → array de screenshots importados ex: [img1, img2]
+//   fullDescEn/Pt → descrição longa para a página de detalhe
+//   linkLabel     → texto do botão de link
 // ─────────────────────────────────────────────────────────────────────────────
-
-// Example imports (uncomment & adjust when you have the images):
-// import swiftImg1 from '../assets/swift-project-1.png';
-// import javaImg1  from '../assets/java-project-1.png';
 
 export const swiftProjects = [
   {
     id: 1,
-    titleEn: "Clairfy",
-    titlePt: "Clairfy",
-    descEn: "A brief description of this Swift project. Replace with real content.",
-    descPt: "Uma breve descrição deste projeto Swift. Substitua pelo conteúdo real.",
-    link: "#",          // ← replace with your GitHub / App Store link
-    tag: "UIKit/APIService/MVVM",
-    image: null,        // ← replace with imported image, e.g. swiftImg1
+    titleEn: "Clarify",
+    titlePt: "Clarify",
+    descEn: "Short description of Clarify. Replace with real content.",
+    descPt: "Descrição curta do Clarify. Substitua pelo conteúdo real.",
+    fullDescEn: "Full description of Clarify — explain the problem it solves, your role, and key learnings. Replace with real content.",
+    fullDescPt: "Descrição completa do Clarify — explique o problema que resolve, seu papel e aprendizados. Substitua pelo conteúdo real.",
+    link: "#",
+    linkLabel: "View on GitHub →",
+    tag: "UIKit / APIService / MVVM",
+    technologies: ["UIKit", "Swift", "REST API", "MVVM"],
+    image: null,
+    images: [],
+    team: [
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
+      // { name: "Team Member", role: "Designer", linkedin: "https://linkedin.com/in/..." },
+    ],
   },
   {
     id: 2,
     titleEn: "CoffeeOverflow",
     titlePt: "CoffeeOverflow",
-    descEn: "A brief description of this Swift project. Replace with real content.",
-    descPt: "Uma breve descrição deste projeto Swift. Substitua pelo conteúdo real.",
+    descEn: "Short description of CoffeeOverflow. Replace with real content.",
+    descPt: "Descrição curta do CoffeeOverflow. Substitua pelo conteúdo real.",
+    fullDescEn: "Full description of CoffeeOverflow. Replace with real content.",
+    fullDescPt: "Descrição completa do CoffeeOverflow. Substitua pelo conteúdo real.",
     link: "#",
-    tag: "SwiftUI/GameCenter",
+    linkLabel: "View on GitHub →",
+    tag: "SwiftUI / GameCenter",
+    technologies: ["SwiftUI", "Swift", "GameCenter"],
     image: null,
+    images: [],
+    team: [
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
+    ],
   },
   {
     id: 3,
     titleEn: "Zoomies",
     titlePt: "Zoomies",
-    descEn: "A brief description of this Swift project. Replace with real content.",
-    descPt: "Uma breve descrição deste projeto Swift. Substitua pelo conteúdo real.",
+    descEn: "Short description of Zoomies. Replace with real content.",
+    descPt: "Descrição curta do Zoomies. Substitua pelo conteúdo real.",
+    fullDescEn: "Full description of Zoomies. Replace with real content.",
+    fullDescPt: "Descrição completa do Zoomies. Substitua pelo conteúdo real.",
     link: "#",
-    tag: "SwiftUI/HealthKit",
+    linkLabel: "View on GitHub →",
+    tag: "SwiftUI / HealthKit",
+    technologies: ["SwiftUI", "Swift", "HealthKit"],
     image: null,
+    images: [],
+    team: [
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
+    ],
   },
-    {
+  {
     id: 4,
     titleEn: "DirtyDogs",
     titlePt: "DirtyDogs",
-    descEn: "A brief description of this Swift project. Replace with real content.",
-    descPt: "Uma breve descrição deste projeto Swift. Substitua pelo conteúdo real.",
+    descEn: "Short description of DirtyDogs. Replace with real content.",
+    descPt: "Descrição curta do DirtyDogs. Substitua pelo conteúdo real.",
+    fullDescEn: "Full description of DirtyDogs. Replace with real content.",
+    fullDescPt: "Descrição completa do DirtyDogs. Substitua pelo conteúdo real.",
     link: "#",
-    tag: "SwiftUI/HealthKit",
+    linkLabel: "View on GitHub →",
+    tag: "SwiftUI / HealthKit",
+    technologies: ["SwiftUI", "Swift", "HealthKit"],
     image: null,
+    images: [],
+    team: [
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
+    ],
   },
 ];
 
 export const javaProjects = [
   {
     id: 5,
-    titleEn: "E-commerce back-end",
-    titlePt: "E-commerce back-end",
-    descEn: "A brief description of this Spring Boot project. Replace with real content.",
-    descPt: "Uma breve descrição deste projeto Spring Boot. Substitua pelo conteúdo real.",
+    titleEn: "E-commerce Back-end",
+    titlePt: "E-commerce Back-end",
+    descEn: "Short description of the E-commerce Back-end. Replace with real content.",
+    descPt: "Descrição curta do E-commerce Back-end. Substitua pelo conteúdo real.",
+    fullDescEn: "Full description of the E-commerce Back-end. Replace with real content.",
+    fullDescPt: "Descrição completa do E-commerce Back-end. Substitua pelo conteúdo real.",
     link: "#",
+    linkLabel: "View on GitHub →",
     tag: "Spring Boot",
+    technologies: ["Java", "Spring Boot", "REST API", "PostgreSQL"],
     image: null,
+    images: [],
+    team: [
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
+    ],
   },
   {
     id: 6,
     titleEn: "Bank Back-end",
     titlePt: "Bank Back-end",
-    descEn: "A brief description of this Spring Boot project. Replace with real content.",
-    descPt: "Uma breve descrição deste projeto Spring Boot. Substitua pelo conteúdo real.",
+    descEn: "Short description of the Bank Back-end. Replace with real content.",
+    descPt: "Descrição curta do Bank Back-end. Substitua pelo conteúdo real.",
+    fullDescEn: "Full description of the Bank Back-end. Replace with real content.",
+    fullDescPt: "Descrição completa do Bank Back-end. Substitua pelo conteúdo real.",
     link: "#",
+    linkLabel: "View on GitHub →",
     tag: "Spring Boot",
+    technologies: ["Java", "Spring Boot", "JPA", "MySQL"],
     image: null,
+    images: [],
+    team: [
+      { name: "Eduardo Ferrari", role: "Developer", linkedin: "https://www.linkedin.com/in/edurferrari/" },
+    ],
   },
 ];
