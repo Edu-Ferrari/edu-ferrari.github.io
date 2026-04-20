@@ -1,18 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.02c8b587.css",
-    "main.js": "/static/js/main.397b4c27.js",
+    "main.js": "/static/js/main.9deb1ab4.js",
     "static/js/453.af4d6fd7.chunk.js": "/static/js/453.af4d6fd7.chunk.js",
+    "static/media/dirtyDogs.png": "/static/media/dirtyDogs.b451f32cb6859dc72ec0.png",
     "static/media/photo2.PNG": "/static/media/photo2.b4a0f3f298bf634bcc4a.PNG",
     "static/media/photo1.JPG": "/static/media/photo1.01520a336ab79c17b318.JPG",
+    "static/media/zoomies.png": "/static/media/zoomies.32a5f723d56ad03bffe4.png",
     "static/media/photo3.JPG": "/static/media/photo3.4a497486cf7a228db21e.JPG",
+    "static/media/clairfy.jpg": "/static/media/clairfy.d5f5d0fbea7eb81520f8.jpg",
+    "static/media/coffeeOverflow5.jpg": "/static/media/coffeeOverflow5.1934b2376a667599325c.jpg",
     "index.html": "/index.html",
     "main.02c8b587.css.map": "/static/css/main.02c8b587.css.map",
-    "main.397b4c27.js.map": "/static/js/main.397b4c27.js.map",
+    "main.9deb1ab4.js.map": "/static/js/main.9deb1ab4.js.map",
     "453.af4d6fd7.chunk.js.map": "/static/js/453.af4d6fd7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.02c8b587.css",
-    "static/js/main.397b4c27.js"
+    "static/js/main.9deb1ab4.js"
   ]
 }
