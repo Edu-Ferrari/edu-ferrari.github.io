@@ -2,13 +2,20 @@
    Projects.css
 ───────────────────────────────────────────────────────────────────────────── */
 
+.projects-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 40px) 0 60px;
+}
+
 .projects-inner {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 100%;
   width: 100%;
 }
 
-/* ── Header row ───────────────────────────────────────────────────────────── */
+/* ── Header ───────────────────────────────────────────────────────────────── */
 .projects-header {
   display: flex;
   align-items: flex-end;
@@ -16,12 +23,12 @@
   margin-bottom: 36px;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 0 8%;
 }
 
-/* ── Tab switcher ─────────────────────────────────────────────────────────── */
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
 .tabs {
   display: flex;
-  gap: 0;
   border: 1.5px solid var(--border);
   border-radius: 100px;
   overflow: hidden;
@@ -46,37 +53,109 @@
   white-space: nowrap;
 }
 
-.tab-btn.active-swift {
-  background: rgba(0, 212, 255, 0.12);
-  color: var(--swift);
-}
+.tab-btn.active-swift { background: rgba(0,212,255,0.12); color: var(--swift); }
+.tab-btn.active-java  { background: rgba(255,45,120,0.12); color: var(--java); }
 
-.tab-btn.active-java {
-  background: rgba(255, 45, 120, 0.12);
-  color: var(--java);
-}
-
-.tab-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.tab-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dot-swift { background: var(--swift); }
 .dot-java  { background: var(--java); }
 
-/* ── Cards grid ───────────────────────────────────────────────────────────── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* ── Horizontal scroll track ──────────────────────────────────────────────── */
+.projects-scroll-track {
+  display: flex;
   gap: 20px;
+  overflow-x: auto;
+  padding: 8px 8% 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.projects-scroll-track::-webkit-scrollbar {
+  height: 4px;
+}
+.projects-scroll-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.projects-scroll-track::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+/* ── Project card ─────────────────────────────────────────────────────────── */
+.project-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,212,255,0.35);
+}
+
+.project-card-img-area {
+  height: 180px;
+  overflow: hidden;
+}
+
+.project-placeholder-img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1c1c28 0%, #12121c 100%);
+}
+
+.project-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card-body {
+  padding: 20px 22px 24px;
+}
+
+.project-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.project-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 8px 0;
+  color: var(--text);
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-link {
+  font-size: 0.83rem;
+  color: var(--accent);
+  font-weight: 500;
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .projects-grid { grid-template-columns: 1fr 1fr; }
-}
-
 @media (max-width: 600px) {
-  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { flex: 0 0 260px; }
 }

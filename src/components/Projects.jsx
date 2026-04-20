@@ -4,13 +4,14 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { forwardRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FadeIn from "./FadeIn";
-import ProjectCard from "./ProjectCard";
 import { swiftProjects, javaProjects } from "../data/projects";
 import "../styles/Projects.css";
 
 const Projects = forwardRef(function Projects({ t, lang }, ref) {
   const [activeTab, setActiveTab] = useState("swift");
+  const navigate = useNavigate();
 
   const projects = activeTab === "swift" ? swiftProjects : javaProjects;
 
@@ -18,7 +19,7 @@ const Projects = forwardRef(function Projects({ t, lang }, ref) {
     <section className="projects-section" ref={ref}>
       <div className="projects-inner">
 
-        {/* Header row */}
+        {/* Header */}
         <div className="projects-header">
           <FadeIn>
             <div>
@@ -26,7 +27,6 @@ const Projects = forwardRef(function Projects({ t, lang }, ref) {
               <h2 className="section-title">{t.title}</h2>
             </div>
           </FadeIn>
-
           <FadeIn delay={0.2}>
             <div className="tabs">
               <button
@@ -47,17 +47,33 @@ const Projects = forwardRef(function Projects({ t, lang }, ref) {
           </FadeIn>
         </div>
 
-        {/* Cards grid */}
-        <div className="projects-grid">
-          {projects.map((project, i) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              lang={lang}
-              viewProjectLabel={t.viewProject}
-              delay={i * 0.1}
-            />
-          ))}
+        {/* Horizontal scroll */}
+        <div className="projects-scroll-track">
+          {projects.map((project) => {
+            const title = lang === "pt" ? project.titlePt : project.titleEn;
+            const desc  = lang === "pt" ? project.descPt  : project.descEn;
+            return (
+              <div
+                key={project.id}
+                className="project-card"
+                onClick={() => navigate(`/project/${project.id}`)}
+              >
+                <div className="project-card-img-area">
+                  {project.image ? (
+                    <img src={project.image} alt={title} className="project-real-img" />
+                  ) : (
+                    <div className="project-placeholder-img" />
+                  )}
+                </div>
+                <div className="project-card-body">
+                  <span className="project-tag">{project.tag}</span>
+                  <h3 className="project-title">{title}</h3>
+                  <p className="project-desc">{desc}</p>
+                  <span className="project-link">{t.viewProject}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
       </div>

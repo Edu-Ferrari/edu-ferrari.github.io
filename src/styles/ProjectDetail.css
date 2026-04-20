@@ -1,0 +1,137 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   ProjectDetail.css
+───────────────────────────────────────────────────────────────────────────── */
+
+.pd-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  padding: calc(var(--nav-h) + 40px) 8% 80px;
+}
+
+.pd-back {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  padding: 8px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.pd-back:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.pd-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ── Hero image ───────────────────────────────────────────────────────────── */
+.pd-hero-img {
+  width: 100%;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.pd-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pd-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1c1c28, #0f0f18);
+}
+
+/* ── Content ──────────────────────────────────────────────────────────────── */
+.pd-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.pd-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  margin: 12px 0 24px;
+  line-height: 1.1;
+}
+
+.pd-desc {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 680px;
+}
+
+/* ── Gallery ──────────────────────────────────────────────────────────────── */
+.pd-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.pd-gallery-img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+/* ── CTA button ───────────────────────────────────────────────────────────── */
+.pd-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #00d4ff, #ff2d78);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.pd-cta:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+/* ── Not found ────────────────────────────────────────────────────────────── */
+.pd-not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--muted);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .pd-hero-img { height: 240px; }
+}

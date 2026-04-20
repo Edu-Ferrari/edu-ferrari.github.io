@@ -1,9 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// App.jsx
-// Root component. Holds language state, section refs, and scroll detection.
-// ─────────────────────────────────────────────────────────────────────────────
-
 import { useState, useRef, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import translations  from "./data/translations";
 import Navbar        from "./components/Navbar";
@@ -11,9 +7,10 @@ import Hero          from "./components/Hero";
 import About         from "./components/About";
 import Projects      from "./components/Projects";
 import Contact       from "./components/Contact";
+import ProjectDetail from "./components/ProjectDetail";
 
-export default function App() {
-  const [lang, setLang]           = useState("en");
+// ── Portfolio (single page) ───────────────────────────────────────────────
+function Portfolio({ lang, setLang }) {
   const [navScrolled, setNavScrolled] = useState(false);
 
   const homeRef     = useRef(null);
@@ -23,7 +20,6 @@ export default function App() {
 
   const t = translations[lang];
 
-  // ── Detect scroll to apply frosted-glass nav style ──────────────────────
   useEffect(() => {
     const container = document.getElementById("scroll-root");
     if (!container) return;
@@ -41,31 +37,30 @@ export default function App() {
         navScrolled={navScrolled}
         refs={{ homeRef, aboutRef, projectsRef, contactRef }}
       />
-
       <div id="scroll-root">
         <Hero
           ref={homeRef}
           t={t.hero}
           onCtaClick={() => projectsRef.current?.scrollIntoView({ behavior: "smooth" })}
         />
-
-        <About
-          ref={aboutRef}
-          t={t.about}
-        />
-
-        <Projects
-          ref={projectsRef}
-          t={t.projects}
-          lang={lang}
-        />
-
-        <Contact
-          ref={contactRef}
-          t={t.contact}
-          tCv={t.cv}
-        />
+        <About ref={aboutRef} t={t.about} />
+        <Projects ref={projectsRef} t={t.projects} lang={lang} />
+        <Contact ref={contactRef} t={t.contact} />
       </div>
     </>
+  );
+}
+
+// ── Root ──────────────────────────────────────────────────────────────────
+export default function App() {
+  const [lang, setLang] = useState("en");
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/"            element={<Portfolio lang={lang} setLang={setLang} />} />
+        <Route path="/project/:id" element={<ProjectDetail lang={lang} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
