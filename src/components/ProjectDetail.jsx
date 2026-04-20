@@ -105,12 +105,15 @@ export default function ProjectDetail({ lang }) {
         {/* HERO */}
         <div className="pd-hero">
           <div className="pd-hero-glow" />
+
+          {/* Imagem grande — fora do centro, ocupa largura total */}
           <div className="pd-hero-img">
             {project.image
               ? <img src={project.image} alt={title} />
               : <div className="pd-hero-img-placeholder" />
             }
           </div>
+
           <span className="pd-tag">{project.tag}</span>
           <h1 className="pd-title">{title}</h1>
           <p className="pd-short-desc">{desc}</p>
