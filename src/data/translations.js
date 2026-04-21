@@ -34,6 +34,7 @@ const translations = {
       subtitle: "Open to opportunities, collaborations, and good conversations.",
       linkedin: "LinkedIn",
       github: "GitHub",
+      viewCV: "View CV",
       email: "Email",
       formTitle: "Send a Message",
       namePlaceholder: "Your name",
@@ -59,7 +60,7 @@ const translations = {
     },
     hero: {
       name: "Eduardo Ferrari",
-      tagline: "Desenvolvedor iOS & Engenheiro de Software",
+      tagline: "Engenheiro de Software",
       sub: "Construindo para o ecossistema Apple & back-end com Java",
       cta: "Ver Projetos",
     },
